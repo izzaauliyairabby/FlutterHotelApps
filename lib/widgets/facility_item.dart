@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-
-import '../theme.dart';
+import 'package:flutter_hotel_apps/theme.dart';
 
 class FacilityItem extends StatelessWidget {
   final String name;
-  final String imageUrl;
+  final String ImageUrl;
   final int total;
 
-  FacilityItem({this.imageUrl, this.name, this.total});
+  FacilityItem(
+      { this.name,  this.ImageUrl,  this.total});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class FacilityItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image.asset(
-          imageUrl,
+          ImageUrl,
           width: 32,
         ),
         SizedBox(
@@ -23,13 +23,13 @@ class FacilityItem extends StatelessWidget {
         ),
         Text.rich(
           TextSpan(
-            text: '$total',
-            style: purpleTextStyle.copyWith(
+            text: "$total",
+            style: greenTextStyle.copyWith(
               fontSize: 14,
             ),
             children: [
               TextSpan(
-                text: ' $name',
+                text: "$name",
                 style: greyTextStyle.copyWith(
                   fontSize: 14,
                 ),

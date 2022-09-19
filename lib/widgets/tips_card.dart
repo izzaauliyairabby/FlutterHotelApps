@@ -1,6 +1,6 @@
-import 'package:bwa_cozy/models/tips.dart';
-import 'package:bwa_cozy/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hotel_apps/model/tips.dart';
+import 'package:flutter_hotel_apps/theme.dart';
 
 class TipsCard extends StatelessWidget {
   final Tips tips;
@@ -23,24 +23,24 @@ class TipsCard extends StatelessWidget {
           children: [
             Text(
               tips.title,
-              style: blackTextStyle.copyWith(
+              style: regularTextStyle.copyWith(
                 fontSize: 18,
+                fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(
-              height: 4,
-            ),
             Text(
-              'Updated ${tips.updatedAt}',
-              style: greyTextStyle,
+              "Updated ${tips.updatedAt}",
+              style: regularTextStyle.copyWith(
+                  fontSize: 14, fontWeight: FontWeight.w300, color: greyColor),
             ),
           ],
         ),
         Spacer(),
         IconButton(
-          onPressed: () {},
+          onPressed: (() {}),
           icon: Icon(
             Icons.chevron_right,
+            size: 24,
             color: greyColor,
           ),
         ),
