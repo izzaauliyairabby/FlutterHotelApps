@@ -1,15 +1,15 @@
-import 'package:bwa_cozy/models/city.dart';
-import 'package:bwa_cozy/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hotel_apps/model/city.dart';
+import 'package:flutter_hotel_apps/theme.dart';
 
 class CityCard extends StatelessWidget {
   final City city;
-
   CityCard(this.city);
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
+      // Refractor for circular edge beveled
       borderRadius: BorderRadius.circular(18),
       child: Container(
         height: 150,
@@ -23,23 +23,24 @@ class CityCard extends StatelessWidget {
                   city.imageUrl,
                   width: 120,
                   height: 102,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.cover, //lapisan
                 ),
-                city.isPopular
+                city.isPopuler
                     ? Align(
                         alignment: Alignment.topRight,
                         child: Container(
+                          // Logo Favorit
                           width: 50,
                           height: 30,
                           decoration: BoxDecoration(
-                            color: purpleColor,
+                            color: greenColor,
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(36),
+                              bottomLeft: Radius.circular(30),
                             ),
                           ),
                           child: Center(
                             child: Image.asset(
-                              'assets/icon_star.png',
+                              'assets/Icon_star.png',
                               width: 22,
                               height: 22,
                             ),
@@ -56,8 +57,9 @@ class CityCard extends StatelessWidget {
               city.name,
               style: blackTextStyle.copyWith(
                 fontSize: 16,
+                fontWeight: FontWeight.w700,
               ),
-            ),
+            )
           ],
         ),
       ),

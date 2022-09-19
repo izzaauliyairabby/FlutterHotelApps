@@ -1,8 +1,7 @@
-import 'package:bwa_cozy/models/space.dart';
-import 'package:bwa_cozy/pages/detail_page.dart';
 import 'package:flutter/material.dart';
-
-import '../theme.dart';
+import 'package:flutter_hotel_apps/model/detail_page.dart';
+import 'package:flutter_hotel_apps/theme.dart';
+import 'package:flutter_hotel_apps/model/space.dart';
 
 class SpaceCard extends StatelessWidget {
   final Space space;
@@ -16,7 +15,7 @@ class SpaceCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => DetailPage(space),
+            builder: (context) => DetailPage(),
           ),
         );
       },
@@ -38,33 +37,36 @@ class SpaceCard extends StatelessWidget {
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
+                      // Logo Favorit
                       width: 70,
                       height: 30,
                       decoration: BoxDecoration(
-                        color: purpleColor,
+                        color: greenColor,
                         borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(36),
+                          bottomLeft: Radius.circular(30),
                         ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/icon_star.png',
-                            width: 22,
-                            height: 22,
-                          ),
-                          Text(
-                            '${space.rating}/5',
-                            style: whiteTextStyle.copyWith(
-                              fontSize: 13,
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/Icon_star.png',
+                              width: 22,
+                              height: 22,
                             ),
-                          ),
-                        ],
+                            Text(
+                              "${space.rating}/5",
+                              style: regularTextStyle.copyWith(
+                                color: Colors.white,
+                                fontSize: 15,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
             ),
@@ -86,18 +88,11 @@ class SpaceCard extends StatelessWidget {
               ),
               Text.rich(
                 TextSpan(
-                  text: '\$${space.price}',
-                  style: purpleTextStyle.copyWith(
+                  text: "\$${space.price}",
+                  style: greenTextStyle.copyWith(
                     fontSize: 16,
                   ),
-                  children: [
-                    TextSpan(
-                      text: ' / month',
-                      style: greyTextStyle.copyWith(
-                        fontSize: 16,
-                      ),
-                    ),
-                  ],
+                  children: [TextSpan(text: '/ Month', style: greyTextStyle)],
                 ),
               ),
               SizedBox(
@@ -105,10 +100,12 @@ class SpaceCard extends StatelessWidget {
               ),
               Text(
                 '${space.city}, ${space.country}',
-                style: greyTextStyle,
-              ),
+                style: regularTextStyle.copyWith(
+                  color: greyColor,
+                ),
+              )
             ],
-          ),
+          )
         ],
       ),
     );
